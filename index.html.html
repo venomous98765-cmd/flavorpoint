@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavorPoint Bistro | Gourmet Dining Experience</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#FF7B25',
+                        },
+                        secondary: {
+                            500: '#2EC4B6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dish-card:hover .dish-image {
+            transform: scale(1.05);
+        }
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 dark:bg-gray-800/90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <i data-feather="coffee" class="text-primary-500 w-8 h-8"></i>
+                        <span class="text-xl font-bold text-gray-800 dark:text-white">FlavorPoint</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-primary-500 font-medium dark:text-gray-300">Home</a>
+                    <a href="#menu" class="text-gray-600 hover:text-primary-500 font-medium dark:text-gray-300">Menu</a>
+                    <a href="#about" class="text-gray-600 hover:text-primary-500 font-medium dark:text-gray-300">About</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary-500 font-medium dark:text-gray-300">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleTheme()" class="theme-toggle p-2 rounded-full bg-gray-100 dark:bg-gray-700">
+                        <i id="theme-icon" data-feather="sun" class="text-gray-700 dark:text-yellow-300"></i>
+                    </button>
+                    <a href="#reservation" class="hidden md:block px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition">Reserve Table</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h1 class="text-5xl font-bold leading-tight">
+                    Savor the <span class="text-primary-500">Flavors</span> of <span class="text-secondary-500">Excellence</span>
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300">
+                    Experience culinary artistry at its finest. Our chef-curated dishes blend tradition with innovation for an unforgettable dining experience.
+                </p>
+                <div class="flex space-x-4 pt-4">
+                    <a href="#menu" class="px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition">View Menu</a>
+                    <a href="#reservation" class="px-6 py-3 border-2 border-primary-500 text-primary-500 rounded-lg hover:bg-primary-50 dark:hover:bg-gray-800 transition">Book a Table</a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -top-6 -right-6 w-24 h-24 bg-secondary-500 rounded-full opacity-30"></div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary-500 rounded-full opacity-20"></div>
+                <img src="http://static.photos/food/1200x630/42" alt="Signature Dish" class="relative z-10 rounded-2xl shadow-2xl w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Dishes -->
+    <section id="menu" class="py-20 bg-gray-100 dark:bg-gray-800 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Our Signature Creations</h2>
+                <div class="w-24 h-1 bg-primary-500 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+                    Each dish tells a story - of flavors, traditions, and culinary innovation. Explore our chef's special selections.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dish 1 -->
+                <div class="dish-card bg-white rounded-2xl overflow-hidden shadow-lg dark:bg-gray-700 transition-all duration-300 hover:shadow-xl">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="http://static.photos/food/640x360/101" alt="Truffle Pasta" class="dish-image w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">Chef's Pick</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold">Black Truffle Pasta</h3>
+                            <span class="text-primary-500 font-bold">Rs.240</span>
+                        </div>
+                        <p class="text-gray-600 mt-2 dark:text-gray-300">Handmade pasta with aged parmesan and seasonal black truffle.</p>
+                        <div class="flex mt-4 space-x-2">
+                            <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded-full text-xs dark:bg-secondary-900 dark:text-secondary-200">Vegetarian</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs dark:bg-gray-600 dark:text-gray-200">Gluten-Free</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 2 -->
+                <div class="dish-card bg-white rounded-2xl overflow-hidden shadow-lg dark:bg-gray-700 transition-all duration-300 hover:shadow-xl">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="http://static.photos/food/640x360/102" alt="Seafood Platter" class="dish-image w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold">Ocean's Bounty Platter</h3>
+                            <span class="text-primary-500 font-bold">Rs.380</span>
+                        </div>
+                        <p class="text-gray-600 mt-2 dark:text-gray-300">Fresh catch of the day with lobster, scallops, and citrus beurre blanc.</p>
+                        <div class="flex mt-4 space-x-2">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs dark:bg-gray-600 dark:text-gray-200">Pescatarian</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dish 3 -->
+                <div class="dish-card bg-white rounded-2xl overflow-hidden shadow-lg dark:bg-gray-700 transition-all duration-300 hover:shadow-xl">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="http://static.photos/food/640x360/103" alt="Dessert" class="dish-image w-full h-full object-cover transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">Seasonal</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold">Chocolate Symphony</h3>
+                            <span class="text-primary-500 font-bold">Rs.154</span>
+                        </div>
+                        <p class="text-gray-600 mt-2 dark:text-gray-300">Five textures of chocolate with raspberry coulis and gold leaf.</p>
+                        <div class="flex mt-4 space-x-2">
+                            <span class="px-2 py-1 bg-secondary-100 text-secondary-800 rounded-full text-xs dark:bg-secondary-900 dark:text-secondary-200">Vegetarian</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs dark:bg-gray-600 dark:text-gray-200">Nut-Free</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-500 hover:bg-primary-600 transition">
+                    View Full Menu
+                    <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="text-3xl font-bold mb-6">Our Culinary <span class="text-primary-500">Philosophy</span></h2>
+                <div class="w-24 h-1 bg-secondary-500 mb-6"></div>
+                <p class="text-gray-600 mb-6 dark:text-gray-300">
+                    At FlavorPoint, we believe in the power of ingredients to tell stories. Our chef, with 20 years of international experience, brings global flavors with a local touch.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <i data-feather="check-circle" class="text-secondary-500 w-5 h-5"></i>
+                        </div>
+                        <p class="ml-3 text-gray-600 dark:text-gray-300">Locally sourced, seasonal ingredients from trusted farmers</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <i data-feather="check-circle" class="text-secondary-500 w-5 h-5"></i>
+                        </div>
+                        <p class="ml-3 text-gray-600 dark:text-gray-300">Sustainable practices and zero-waste kitchen</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <i data-feather="check-circle" class="text-secondary-500 w-5 h-5"></i>
+                        </div>
+                        <p class="ml-3 text-gray-600 dark:text-gray-300">Artisanal techniques meet modern creativity</p>
+                    </div>
+                </div>
+            </div>
+            <div class="order-1 md:order-2 relative">
+                <div class="absolute -top-6 -left-6 w-32 h-32 bg-primary-500 rounded-full opacity-20 z-0"></div>
+                <div class="relative z-10 grid grid-cols-2 gap-4">
+                    <img src="http://static.photos/restaurant/320x240/1" alt="Chef Cooking" class="rounded-2xl shadow-lg h-64 object-cover">
+                    <img src="http://static.photos/restaurant/320x240/2" alt="Restaurant Interior" class="rounded-2xl shadow-lg h-64 object-cover mt-8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-secondary-500 text-white px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">What Our Guests Say</h2>
+                <div class="w-24 h-1 bg-primary-500 mx-auto mb-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/1" alt="Sarah J." class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <div class="flex text-yellow-300">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"The truffle pasta was life-changing! Service was impeccable and the ambiance perfect for our anniversary."</p>
+                </div>
+                
+                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/2" alt="Michael T." class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Michael T.</h4>
+                            <div class="flex text-yellow-300">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"As a food critic, I'm rarely impressed. FlavorPoint exceeded all expectations. The seafood platter was perfection."</p>
+                </div>
+                
+                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/3" alt="Emma & Liam" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Emma & Liam</h4>
+                            <div class="flex text-yellow-300">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="italic">"Our go-to date night spot! The tasting menu with wine pairing is always an adventure for the senses."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation -->
+    <section id="reservation" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden">
+            <div class="md:flex">
+                <div class="md:w-1/2 bg-primary-500 text-white p-12 hidden md:block">
+                    <h2 class="text-3xl font-bold mb-6">Book Your Table</h2>
+                    <p class="mb-8">Experience the FlavorPoint difference. Reserve your table for an unforgettable culinary journey.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <i data-feather="phone" class="w-6 h-6 mr-4"></i>
+                            <span>+91 0123456789</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="map-pin" class="w-6 h-6 mr-4"></i>
+                            <span>123 Gourmet Avenue, Foodie City</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="clock" class="w-6 h-6 mr-4"></i>
+                            <span>Mon-Sun: 11am - 11pm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 p-8 md:p-12">
+                    <h2 class="text-3xl font-bold mb-6 md:hidden text-primary-500">Book Your Table</h2>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="date" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Date</label>
+                                <input type="date" id="date" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600">
+                            </div>
+                            <div>
+                                <label for="time" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Time</label>
+                                <input type="time" id="time" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="guests" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Number of Guests</label>
+                            <select id="guests" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600">
+                                <option>1 person</option>
+                                <option>2 people</option>
+                                <option>3 people</option>
+                                <option>4 people</option>
+                                <option>5+ people</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="special" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Special Requests</label>
+                            <textarea id="special" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition">Reserve Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-primary-500 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+                    Have questions? Want to host a private event? We'd love to hear from you.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-white dark:bg-gray-700 rounded-2xl shadow-lg p-8">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1 text-primary-500">
+                                    <i data-feather="map-pin" class="w-6 h-6"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-900 dark:text-white">Address</h4>
+                                    <p class="mt-1 text-gray-600 dark:text-gray-300">123 Gourmet Avenue, Foodie City, FC 12345</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1 text-primary-500">
+                                    <i data-feather="phone" class="w-6 h-6"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-900 dark:text-white">Phone</h4>
+                                    <p class="mt-1 text-gray-600 dark:text-gray-300">+91 0123456789</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1 text-primary-500">
+                                    <i data-feather="mail" class="w-6 h-6"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-900 dark:text-white">Email</h4>
+                                    <p class="mt-1 text-gray-600 dark:text-gray-300">hello@FlavorPoint.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1 text-primary-500">
+                                    <i data-feather="clock" class="w-6 h-6"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-medium text-gray-900 dark:text-white">Hours</h4>
+                                    <p class="mt-1 text-gray-600 dark:text-gray-300">
+                                        Monday - Sunday: 11am - 11pm<br>
+                                        Kitchen closes at 10pm
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white dark:bg-gray-700 rounded-2xl shadow-lg p-8">
+                        <h3 class="text-xl font-bold mb-6">Send Us a Message</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                                <input type="text" id="contact-name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600">
+                            </div>
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                                <input type="email" id="contact-email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600">
+                            </div>
+                            <div>
+                                <label for="contact-subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                                <input type="text" id="contact-subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600">
+                            </div>
+                            <div>
+                                <label for="contact-message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                                <textarea id="contact-message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-600"></textarea>
+                            </div>
+                            <button type="submit" class="px-6 py-3 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-feather="coffee" class="text-primary-500 w-8 h-8"></i>
+                        <span class="text-xl font-bold text-white">FlavorPoint</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Where every bite tells a story and every meal creates memories.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Navigation</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-white transition">Menu</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe for exclusive offers and updates.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg bg-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-primary-500 w-full">
+                        <button type="submit" class="px-4 py-2 bg-primary-500 text-white rounded-r-lg hover:bg-primary-600 transition">
+                            <i data-feather="send" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 FlavorPoint Bistro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.querySelector('html');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                themeIcon.setAttribute('data-feather', 'moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                themeIcon.setAttribute('data-feather', 'sun');
+                localStorage.setItem('theme', 'dark');
+            }
+            
+            feather.replace();
+        }
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.querySelector('html').classList.add('dark');
+            document.getElementById('theme-icon').setAttribute('data-feather', 'sun');
+        } else {
+            document.getElementById('theme-icon').setAttribute('data-feather', 'moon');
+        }
+        
+        // Initialize feather icons
+        feather.replace();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
